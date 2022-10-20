@@ -1,5 +1,26 @@
 import { useState } from "react";
 
+const History = ({ allClicks }) => {
+  if (allClicks.length === 0) {
+    return (
+      <div>
+        the app is used by pressing the button
+      </div>
+    )
+  } 
+  return (
+    <div>
+      button press history: {allClicks.join(' ')}
+    </div>
+  )
+}
+
+const Button = ({ handleClick, text }) => (
+  <button onClick={handleClick}>
+    {text}
+  </button>
+)
+
 // Never mutate the state, for string, don't use push
 const App = () => {
 const [left, setLeft] = useState(0)
@@ -20,10 +41,10 @@ const handleRightClick = () => {
 return (
   <div>
     {left}
-    <button onClick={handleLeftClick}>left</button>
-    <button onClick={handleRightClick}>right</button>
+    <Button handleClick={handleLeftClick} text='left' />
+    <Button handleClick={handleRightClick} text='right'/>
     {right}
-    <p>{allClicks.join(' ')}</p>
+    <History allClicks={allClicks} />
   </div>
   )
 }
