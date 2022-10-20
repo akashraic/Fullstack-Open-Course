@@ -11,14 +11,12 @@ const App = () => {
   const setToZero = () => setCounter(0)
   const decreaseByOne = () => setCounter(counter - 1)
 
-
   return (
     <div>
       <Display counter={counter}/>
       <Button onClick={increaseByOne} text='plus' />
       <Button onClick={setToZero} text='zero' />
       <Button onClick={decreaseByOne} text='minus' />
-
     </div>
   );
 }
