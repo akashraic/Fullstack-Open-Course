@@ -1,7 +1,10 @@
 import { useState } from 'react'
 
 const StatisticLine = ({ text,value,symbol }) => (
-  <p>{text}: {value} {symbol}</p>
+  <tr>
+    <td>{text}:</td> <td> {value} {symbol}</td>
+  </tr>
+  
 )
 
 const Button = ({ handleClick, text }) => (

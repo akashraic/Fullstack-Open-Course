@@ -21,7 +21,13 @@ const Button = ({ handleClick, text }) => (
   </button>
 )
 
-// Never mutate the state, for string, don't use push
+const hello = (who) => () => console.log('hello',who)
+   
+
+
+/*  Never mutate the state, for string, don't use push
+    Can't call useState from inside a loop, conditional or non-function defining component
+    */
 const App = () => {
 const [left, setLeft] = useState(0)
 const [right, setRight] = useState(0)
@@ -43,6 +49,7 @@ return (
     {left}
     <Button handleClick={handleLeftClick} text='left' />
     <Button handleClick={handleRightClick} text='right'/>
+    <button onClick={hello('you')}>hello</button>
     {right}
     <History allClicks={allClicks} />
   </div>
